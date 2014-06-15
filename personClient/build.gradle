@@ -1,0 +1,10 @@
+task "create-dir" << {
+    sourceSets*.java.srcDirs*.each { it.mkdirs() }
+    sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+}
+
+dependencies {
+    compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.13',
+            'org.springframework.ws:spring-ws-core:2.1.4.RELEASE'
+            project(':jaxb')
+}
