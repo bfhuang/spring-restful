@@ -9,6 +9,7 @@ public class restfulClient {
 
 	public static void main(String[] args){
 		RestTemplate template = new RestTemplate();
+//        template.setErrorHandler(new MyResponseHandler());
 
 		String url = "http://localhost:16313/restfulExample/person.html";
 
@@ -25,6 +26,7 @@ public class restfulClient {
 //		Person person1 = template.getForObject(url, Person.class);
 		System.out.println(person.getFirstName());
 
-
 	}
+
+
 }

@@ -1,11 +1,13 @@
 package com.springapp.mvc;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import person.Person;
 
 import java.util.Arrays;
@@ -31,8 +33,12 @@ public class PersonController {
 
 	@RequestMapping(method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	@ResponseBody
-	public Person getPerson() {
+//    can use advice do the error handling in client side
+//    @ResponseStatus(value= HttpStatus.NOT_FOUND)
+	public Person getPerson() throws Exception {
+//        throw new RuntimeException();
 		return createPerson();
+//        return null;
 	}
 
 
